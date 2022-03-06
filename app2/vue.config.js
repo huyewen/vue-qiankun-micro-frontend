@@ -1,17 +1,17 @@
-const packageName = require('./package.json').name
+// const packageName = require('./package.json').name
 const port = 8002
 
 module.exports = {
-  publicPath: `//localhost:${port}`,
   devServer: {
-    port
+    port,
+    headers: {
+      'Access-Control-Allow-Origin': '*' // 允许跨域
+    }
   },
   configureWebpack: {
     output: {
-      library: `${packageName}-[name]`,
-      libraryTarget: 'umd',
-      jsonpFunction: `webpackJsonp_${packageName}`,
+      library: 'microApp',
+      libraryTarget: 'umd'
     }
   }
 }
-

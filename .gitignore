@@ -9,8 +9,8 @@ app2/dist
 app3/node_modules
 app3/dist
 
-main-app/node_modules
-main-app/dist
+base-app/node_modules
+base-app/dist
 
 
 # local env files
@@ -23,8 +23,8 @@ app2/.env.*.local
 app3/.env.local
 app3/.env.*.local
 
-main-app/.env.local
-main-app/.env.*.local
+base-app/.env.local
+base-app/.env.*.local
 
 # Log files
 npm-debug.log*
@@ -47,10 +47,10 @@ app3/yarn-debug.log*
 app3/yarn-error.log*
 app3/pnpm-debug.log*
 
-main-app/npm-debug.log*
-main-app/yarn-debug.log*
-main-app/yarn-error.log*
-main-app/pnpm-debug.log*
+base-app/npm-debug.log*
+base-app/yarn-debug.log*
+base-app/yarn-error.log*
+base-app/pnpm-debug.log*
 
 
 # Editor directories and files

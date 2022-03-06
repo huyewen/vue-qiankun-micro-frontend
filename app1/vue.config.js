@@ -1,16 +1,18 @@
-const packageName = require('./package.json').name
+const name = require('./package.json').name
 const port = 8001
 
 module.exports = {
-  publicPath: `//localhost:${port}`,
   devServer: {
-    port
+    port,
+    headers: {
+      'Access-Control-Allow-Origin': '*' // 允许跨域
+    }
   },
   configureWebpack: {
     output: {
-      library: `${packageName}-[name]`,
-      libraryTarget: 'umd',
-      jsonpFunction: `webpackJsonp_${packageName}`,
+      library: `${name}-[name]`,
+      libraryTarget: 'umd', // 把微应用打包成 umd 库格式
+      jsonpFunction: `webpackJsonp_${name}`,
     }
   }
 }

@@ -1,44 +1,39 @@
+import './public-path'
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import singleSpaVue from 'single-spa-vue'
 
 Vue.config.productionTip = false
 
-const appOptions = {
-  el: '#microApp',
-  router,
-  store,
-  render: (h) => h(App)
+let instance = null
+
+function render (props) {
+  const { container } = props
+
+  instance = new Vue({
+    router,
+    store,
+    render: h => h(App)
+  }).$mount(container ? container.querySelector('#app') : '#app')
 }
 
-if (!window.singleSpaNavigate) {
-  delete appOptions.el
-  new Vue(appOptions).$mount('#app')
+if (!window.__POWERED_BY_QIANKUN__) {
+  render()
 }
 
-const vueLifecycle = singleSpaVue({
-  Vue,
-  appOptions
-})
-
-export function bootstrap (customProps = {}) {
-  console.log('app3: bootstrap')
-  return vueLifecycle.bootstrap(customProps)
+export async function bootstrap (props) {
+  console.log('[vue] vue app bootstraped')
 }
 
-export function mount (customProps = {}) {
-  console.log('app3: mount')
-  return vueLifecycle.mount(customProps)
+export async function mount (props) {
+  console.log('[vue] props from main framework', props)
+  render(props)
 }
 
-export function unmount (customProps = {}) {
-  console.log('app3: unmount')
-  return vueLifecycle.unmount(customProps)
-}
-
-export function update (customProps = {}) {
-  console.log('app3: update')
-  return vueLifecycle.update(customProps)
+export async function unmount (prosp) {
+  instance.$destroy()
+  instance.$el.innerHTML = ''
+  instance = null
 }

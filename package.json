@@ -8,12 +8,12 @@
     "install:app1": "cd app1 && yarn install",
     "install:app2": "cd app2 && yarn install",
     "install:app3": "cd app3 && yarn install",
-    "install:main-app": "cd main-app && yarn install",
+    "install:base-app": "cd base-app && yarn install",
     "serve": "npm-run-all --parallel serve:*",
-    "serve:app1": "cd app1 && yarn serve:micro",
-    "serve:app2": "cd app2 && yarn serve:micro",
-    "serve:app3": "cd app3 && yarn serve:micro",
-    "serve:main-app": "cd main-app && yarn serve"
+    "serve:app1": "cd app1 && yarn serve",
+    "serve:app2": "cd app2 && yarn serve",
+    "serve:app3": "cd app3 && yarn serve",
+    "serve:base-app": "cd base-app && yarn serve"
   },
   "author": "",
   "license": "ISC",

@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-     <h1>app1 home page</h1>
+     <h1>app2 home page</h1>
   </div>
 </template>
 
